@@ -80,7 +80,7 @@ export default () => {
                 <AlertDescription>
                   {data?.list.map((i: string) => {
                     return (
-                      <Badge key={i} variant='outline'>
+                      <Badge key={i} variant='outline' className='mx-1'>
                         {i}
                       </Badge>
                     );
@@ -94,13 +94,15 @@ export default () => {
             name='paddle'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Paddle Mode</FormLabel>
-                <FormControl>
-                  <Switch
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
+                <div className='flex items-center space-x-2'>
+                  <FormLabel>Paddle Mode</FormLabel>
+                  <FormControl>
+                    <Switch
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                </div>
                 <FormMessage />
               </FormItem>
             )}
@@ -110,13 +112,15 @@ export default () => {
             name='cutAll'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>精准模式</FormLabel>
-                <FormControl>
-                  <Switch
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
+                <div className='flex items-center space-x-2'>
+                  <FormLabel>精准模式</FormLabel>
+                  <FormControl>
+                    <Switch
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                </div>
                 <FormMessage />
               </FormItem>
             )}

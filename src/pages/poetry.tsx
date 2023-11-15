@@ -175,7 +175,7 @@ function App() {
   const playerRef = useRef<AudioPlayerRef>(null);
 
   return (
-    <div className='p-2 bg-slate-50 min-h-screen text-center'>
+    <div className='p-2 bg-slate-50 dark:bg-slate-900 min-h-screen text-center'>
       <Toaster />
       <div className='flex items-center justify-center pb-4'>
         <Button
