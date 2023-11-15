@@ -124,7 +124,7 @@ export type AudioPlayerRef = {
   play: (text?: string) => void;
 };
 
-const AudioPlayer = forwardRef<AudioPlayerRef, AudioPlayerProps>(
+export const AudioPlayer = forwardRef<AudioPlayerRef, AudioPlayerProps>(
   ({ onPlay = () => {}, onEnd = () => {} }, ref) => {
     const textRef = useRef<string>('');
     const audioRef = useRef<HTMLAudioElement>(new Audio());

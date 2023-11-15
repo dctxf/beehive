@@ -17,6 +17,11 @@ const items = [
     to: '/jieba',
     desc: '采用中文分词库jieba，开源免费。',
   },
+  {
+    title: '每日一句英语',
+    to: '/ciba',
+    desc: '采用ciba接口，支持语音朗读',
+  },
 ];
 
 export default () => {
