@@ -31,10 +31,20 @@ function App() {
   return (
     <>
       <div className='flex items-center justify-between w-full leading-3 px-4 py-2 bg-slate-50 dark:bg-slate-800'>
-        <div>
-          <a href='/' title='Beehive 小工具集'>
-            Beehive 小工具集
-          </a>
+        <div className='relative overflow-hidden rounded-full h-max w-max'>
+          <div className='absolute inset-0 w-4 h-16 animate-slide'>
+            <div
+              aria-hidden='true'
+              className='absolute inset-0 rotate-[-20deg] scale-y-125 bg-gradient-to-r from-transparent via-white/30 dark:via-white/10'
+            ></div>
+          </div>
+          <div className='border relative border-blue-200 border-whit/50 inline-flex items-center p-0.5 px-2.5 rounded-full gap-x-2 border-white/40 dark:border-white/30 bg-gray-950/20 dark:bg-white/10 before:scale-y-110 before:absolute before:inset-x-4 before:-bottom-px before:bg-gradient-to-r before:from-transparent before:via-yellow-50 before:to-transparent before:h-px before:w-3/5'>
+            <a href='/' title='Beehive 小工具集'>
+              <span className='text-sm tracking-wide text-white'>
+                Beehive 小工具集
+              </span>
+            </a>
+          </div>
         </div>
         <NavigationMenu>
           <NavigationMenuList>

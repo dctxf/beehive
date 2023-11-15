@@ -74,3 +74,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+.animate-slide {
+  animation: slide 3s infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate(-20rem);
+  }
+
+  25% {
+    transform: translate(-10rem);
+  }
+  100% {
+    transform: translate(15rem);
+  }
+}
