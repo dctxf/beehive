@@ -57,7 +57,7 @@ export default () => {
   }
 
   return (
-    <div className='p-8'>
+    <div className='p-8 max-w-[500px] mx-auto'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
           <FormField
@@ -125,7 +125,9 @@ export default () => {
               </FormItem>
             )}
           />
-          <Button type='submit'>提交</Button>
+          <Button type='submit' className='w-full'>
+            提交
+          </Button>
         </form>
       </Form>
     </div>

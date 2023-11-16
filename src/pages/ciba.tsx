@@ -26,7 +26,7 @@ export const queryCiba = (title: string) => {
 };
 
 export default () => {
-  const { run, data, loading } = useRequest(queryCiba, { manual: true });
+  const { run, data } = useRequest(queryCiba, { manual: true });
   const [date, setDate] = useState<Date | undefined>(new Date());
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default () => {
   };
 
   return (
-    <div className='p-4'>
+    <div className='p-4 max-w-lg mx-auto'>
       <AudioPlayer
         ref={playerRef}
         onPlay={() => setPlaying(true)}
@@ -55,7 +55,7 @@ export default () => {
           <Button
             variant={'outline'}
             className={cn(
-              'w-[280px] justify-start text-left font-normal',
+              'w-full justify-start text-left font-normal',
               !date && 'text-muted-foreground',
               'mb-2'
             )}

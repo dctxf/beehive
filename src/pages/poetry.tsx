@@ -169,13 +169,13 @@ export const AudioPlayer = forwardRef<AudioPlayerRef, AudioPlayerProps>(
 
 function App() {
   const { data, refresh, loading } = useRequest(queryPoetry, {});
-  const [hasPinyin, setHasPinyin] = useState(false);
+  const [hasPinyin, setHasPinyin] = useState(true);
   const [playing, setPlaying] = useState(false);
 
   const playerRef = useRef<AudioPlayerRef>(null);
 
   return (
-    <div className='p-2 bg-slate-50 dark:bg-slate-900 min-h-screen text-center'>
+    <div className='p-2 text-center'>
       <Toaster />
       <div className='flex items-center justify-center pb-4'>
         <Button
