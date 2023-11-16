@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './layout';
 import Ciba from './pages/ciba';
 import Home from './pages/home';
+import ImageApi from './pages/image-api';
 import Jieba from './pages/jieba';
 import PhoneLocation from './pages/phone-location';
 import Poetry from './pages/poetry';
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/phone/location',
         element: <PhoneLocation></PhoneLocation>,
+      },
+      {
+        path: '/image/api',
+        element: <ImageApi></ImageApi>,
       },
     ],
   },

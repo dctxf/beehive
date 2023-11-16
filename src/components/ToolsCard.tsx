@@ -23,6 +23,11 @@ const items = [
     to: '/phone/location',
     desc: '查询手机号归属地',
   },
+  {
+    title: '随机图片API接口',
+    to: '/image/api',
+    desc: '日常使用的随机图片API接口',
+  },
 ];
 
 export const ToolsCard: FC<{ className?: string }> = ({ className }) => {
