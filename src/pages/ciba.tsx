@@ -1,3 +1,4 @@
+import { AudioPlayer, AudioPlayerRef } from '@/components/AudioPlayer';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import {
@@ -18,7 +19,6 @@ import { zhCN } from 'date-fns/locale';
 import dayjs from 'dayjs';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { AudioPlayer, AudioPlayerRef } from './poetry';
 export const queryCiba = (title: string) => {
   return fetch(`https://ims-api.dctxf.com/ciba?title=${title}`).then((res) =>
     res.json()
@@ -89,7 +89,9 @@ export default () => {
             className='mr-2'
             disabled={playing}
             onClick={() => {
-              playerRef.current?.play(data?.content);
+              playerRef.current?.play({
+                text: data?.content,
+              });
             }}
           >
             {playing ? '正在朗读' : '朗读英文'}
@@ -98,7 +100,9 @@ export default () => {
             className=''
             disabled={playing}
             onClick={() => {
-              playerRef.current?.play(data?.note);
+              playerRef.current?.play({
+                text: data?.note,
+              });
             }}
           >
             {playing ? '正在朗读' : '朗读中文'}

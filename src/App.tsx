@@ -6,6 +6,7 @@ import ImageApi from './pages/image-api';
 import Jieba from './pages/jieba';
 import PhoneLocation from './pages/phone-location';
 import Poetry from './pages/poetry';
+import Tts from './pages/tts';
 
 const router = createHashRouter([
   {
@@ -35,6 +36,10 @@ const router = createHashRouter([
       {
         path: '/image/api',
         element: <ImageApi></ImageApi>,
+      },
+      {
+        path: '/tts',
+        element: <Tts></Tts>,
       },
     ],
   },

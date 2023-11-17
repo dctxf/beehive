@@ -1,17 +1,11 @@
+import { AudioPlayer, AudioPlayerRef } from '@/components/AudioPlayer';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { useRequest } from 'ahooks';
 import classNames from 'classnames';
 import copy from 'copy-to-clipboard';
 import ky from 'ky';
 import { pinyin } from 'pinyin-pro';
-import {
-  FC,
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import { FC, useRef, useState } from 'react';
 import { Toaster, toast } from 'sonner';
 
 const BASE_URL = 'https://ims-api.dctxf.com';
@@ -103,8 +97,8 @@ export const Button: FC<ButtonProps> = ({
       className={classNames(
         'flex items-center cursor-pointer py-1 px-2 transition-all mr-2 last:mr-0',
         active
-          ? 'bg-green-400 text-white hover:bg-green-500'
-          : 'bg-slate-100 text-gray-600 hover:bg-slate-200',
+          ? 'bg-green-400 text-white hover:bg-green-500 dark:bg-slate-500 dark:text-gray-300 dark:hover:bg-slate-600'
+          : 'bg-slate-100 text-gray-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-gray-300 dark:hover:bg-slate-700',
         className
       )}
       onClick={onClick}
@@ -114,58 +108,6 @@ export const Button: FC<ButtonProps> = ({
     </span>
   );
 };
-
-export type AudioPlayerProps = {
-  //
-  onPlay?: () => void;
-  onEnd?: () => void;
-};
-export type AudioPlayerRef = {
-  play: (text?: string) => void;
-};
-
-export const AudioPlayer = forwardRef<AudioPlayerRef, AudioPlayerProps>(
-  ({ onPlay = () => {}, onEnd = () => {} }, ref) => {
-    const textRef = useRef<string>('');
-    const audioRef = useRef<HTMLAudioElement>(new Audio());
-
-    useEffect(() => {
-      if (audioRef.current) {
-        audioRef.current.addEventListener('play', onPlay);
-        audioRef.current.addEventListener('ended', onEnd);
-      }
-      return () => {
-        if (audioRef.current) {
-          audioRef.current.removeEventListener('play', onPlay);
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          audioRef.current.removeEventListener('ended', onEnd);
-        }
-      };
-    }, [onEnd, onPlay]);
-
-    useImperativeHandle(
-      ref,
-      () => {
-        return {
-          play(text) {
-            const audio = audioRef.current;
-            if (!text) return;
-            if (textRef.current === text) {
-              audio.currentTime = 0;
-              audio.play();
-              return;
-            }
-            textRef.current = text;
-            audio.src = `${BASE_URL}/ms/tts?text=${text}`;
-            audio.play();
-          },
-        };
-      },
-      []
-    );
-    return null;
-  }
-);
 
 function App() {
   const { data, refresh, loading } = useRequest(queryPoetry, {});
@@ -186,7 +128,9 @@ function App() {
         <Button
           onClick={() => {
             if (data?.paragraphs) {
-              playerRef.current?.play(data?.paragraphs!.join('\n'));
+              playerRef.current?.play({
+                text: data?.paragraphs!.join('\n'),
+              });
             }
           }}
           icon={<Icon icon='fluent:immersive-reader-16-regular' />}

@@ -28,6 +28,11 @@ const items = [
     to: '/image/api',
     desc: '日常使用的随机图片API接口',
   },
+  {
+    title: '文字转语言',
+    to: '/tts',
+    desc: '使用微软TTS实现的文字转语言功能',
+  },
 ];
 
 export const ToolsCard: FC<{ className?: string }> = ({ className }) => {

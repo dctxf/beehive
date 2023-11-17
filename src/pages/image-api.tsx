@@ -33,17 +33,22 @@ const items = [
   },
   {
     title: '樱花二次元图片API-Dmoe',
-    demos: ['https://www.dmoe.cc/random.php'],
+    demos: [
+      'https://www.dmoe.cc/random.php?t=1',
+      'https://www.dmoe.cc/random.php?t=2',
+      'https://www.dmoe.cc/random.php?t=3',
+      'https://www.dmoe.cc/random.php?t=4',
+    ],
     doc: 'https://www.dmoe.cc',
   },
   {
-    title: '保罗｜API',
-    demos: ['https://api.paugram.com/wallpaper/'],
-    doc: 'https://api.paugram.com',
-  },
-  {
     title: 'Lorem Picsum',
-    demos: ['https://unsplash.it/1600/900?random'],
+    demos: [
+      'https://picsum.photos/200/200?random&t=1',
+      'https://picsum.photos/200/200?random&t=2',
+      'https://picsum.photos/200/200?random&t=3',
+      'https://picsum.photos/200/200?random&t=4',
+    ],
     doc: 'https://picsum.photos/',
   },
   {
@@ -51,8 +56,8 @@ const items = [
     demos: [
       'https://source.unsplash.com/random',
       'https://source.unsplash.com/user/erondu/200x200',
-      'https://source.unsplash.com/user/tkirkgoz/200x200',
       'https://source.unsplash.com/random?t=1',
+      'https://source.unsplash.com/random?t=2',
     ],
     doc: 'https://source.unsplash.com/',
   },
@@ -60,13 +65,7 @@ const items = [
 
 export default () => {
   return (
-    <div
-      className='p-4 grid gap-2 md:grid-cols-2 xl:grid-cols-3'
-      style={{
-        backgroundImage: `url("https://unsplash.it/1600/900?random")`,
-        backdropFilter: 'blur(10px)',
-      }}
-    >
+    <div className='p-4 grid gap-2 md:grid-cols-2 xl:grid-cols-3'>
       {items.map((i) => {
         return (
           <Card
