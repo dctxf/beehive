@@ -7,20 +7,27 @@ const items = [
       'https://cdn.seovx.com/?mom=302',
       'https://cdn.seovx.com/d/?mom=302',
       'https://cdn.seovx.com/ha/?mom=302',
+      'https://cdn.seovx.com/ha/?mom=302&t=1',
     ],
-    doc: '',
+    doc: 'https://cdn.seovx.com',
   },
   {
     title: 'imgapi',
-    demos: ['https://imgapi.cn/bing.php'],
+    demos: [
+      'https://imgapi.cn/api.php?fl=meizi&gs=images',
+      'https://imgapi.cn/api.php?fl=dongman&gs=images',
+      'https://imgapi.cn/api.php?fl=fengjing&gs=images',
+      'https://imgapi.cn/api.php?fl=suiji&gs=images',
+    ],
     doc: 'https://imgapi.cn',
   },
   {
     title: '岁月小筑',
     demos: [
-      'https://img.xjh.me/random_img.php',
-      'https://img.xjh.me/random_img.php?return=json',
       'https://img.xjh.me/random_img.php?return=302',
+      'https://img.xjh.me/random_img.php?return=302&t=1',
+      'https://img.xjh.me/random_img.php?return=302&t=2',
+      'https://img.xjh.me/random_img.php?return=302&t=3',
     ],
     doc: 'https://img.xjh.me/',
   },
@@ -43,8 +50,9 @@ const items = [
     title: 'Unsplash Image API',
     demos: [
       'https://source.unsplash.com/random',
-      'https://source.unsplash.com/user/erondu/1600x900',
-      'https://source.unsplash.com/user/tkirkgoz/1600x900',
+      'https://source.unsplash.com/user/erondu/200x200',
+      'https://source.unsplash.com/user/tkirkgoz/200x200',
+      'https://source.unsplash.com/random?t=1',
     ],
     doc: 'https://source.unsplash.com/',
   },
@@ -53,7 +61,7 @@ const items = [
 export default () => {
   return (
     <div
-      className='p-4 grid gap-2 md:grid-cols-2 xl:grid-cols-3 h-full'
+      className='p-4 grid gap-2 md:grid-cols-2 xl:grid-cols-3'
       style={{
         backgroundImage: `url("https://unsplash.it/1600/900?random")`,
         backdropFilter: 'blur(10px)',
@@ -76,18 +84,15 @@ export default () => {
                 查看文档
               </a>
             </div>
-            <CardContent className='text-sm flex-1 p-4'>
+            <CardContent className='text-sm grid grid-cols-4 gap-1 flex-1 p-4'>
               {i.demos.map((demo) => {
                 return (
-                  <div key={demo} className='leading-6'>
-                    <a
-                      href={demo}
-                      target='_blank'
-                      className='whitespace-pre-wrap text-xs'
-                      title={demo}
-                    >
-                      {demo}
-                    </a>
+                  <div key={demo} className=''>
+                    <img
+                      src={demo}
+                      className='whitespace-pre-wrap text-xs w-full h-[100px] object-cover'
+                      alt={demo}
+                    ></img>
                   </div>
                 );
               })}

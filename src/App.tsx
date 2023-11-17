@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import Layout from './layout';
 import Ciba from './pages/ciba';
 import Home from './pages/home';
@@ -7,7 +7,7 @@ import Jieba from './pages/jieba';
 import PhoneLocation from './pages/phone-location';
 import Poetry from './pages/poetry';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '',
     element: <Layout></Layout>,
